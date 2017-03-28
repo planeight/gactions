@@ -1,0 +1,11 @@
+{
+  "name": "gactions",
+  "version": "0.0.0",
+  "description": "Helper for Actions on Google",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keith Horwood",
+  "license": "MIT"
+}
