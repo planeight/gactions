@@ -30,7 +30,7 @@ const Action = require('gactions').Action;
 const myAction = new Action('my assistant'); // any name works
 
 // Sets up MAIN intent
-myAction.listen(
+myAction.addIntent(
   'MAIN',
   {
     description: 'None'
@@ -50,7 +50,7 @@ myAction.listen(
 
   Will be triggered on "my name is Steven" / etc.
 */
-myAction.listen(
+myAction.addIntent(
   'TEXT',
   {
     description: 'None',
@@ -123,12 +123,13 @@ const myAction = new Action('my assistant'); // any name works
 myAction.load('./action/intents');
 
 // Fictional HTTP Handler. Receives a JS object "body" from JSON
-function HTTPResponse(body) {
+module.exports = function HTTPHandler(body, callback) {
 
   myAction.execute(body, (err, result, headers) => {
 
     // Will populate a result Object and necessary HTTP headers to be
-    //   sent to the client
+    //   sent to the client - can just callback or can handle however we like :)
+    callback(err, result, headers);
 
   });
 
