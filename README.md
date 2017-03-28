@@ -107,7 +107,7 @@ You can then load all your intents at once using:
 const Action = require('gactions').Action;
 const myAction = new Action('my assistant'); // any name works
 
-myAction.load('./action/intents');
+myAction.loadIntents('./action/intents');
 ```
 
 ## Responding to HTTP Requests
@@ -120,12 +120,12 @@ look like this:
 const Action = require('gactions').Action;
 const myAction = new Action('my assistant'); // any name works
 
-myAction.load('./action/intents');
+myAction.loadIntents('./action/intents');
 
 // Fictional HTTP Handler. Receives a JS object "body" from JSON
 module.exports = function HTTPHandler(body, callback) {
 
-  myAction.execute(body, (err, result, headers) => {
+  myAction.runIntent(body, (err, result, headers) => {
 
     // Will populate a result Object and necessary HTTP headers to be
     //   sent to the client - can just callback or can handle however we like :)
